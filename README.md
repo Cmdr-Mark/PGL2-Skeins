@@ -1,6 +1,4 @@
 # PGL2-Skein-Algebras-on-Surfaces
 A Repository for working on a TeX Paper. How Exciting.
 
-PGL2-Skein-Algebras-on-Surfaces/src/ contains all of the individual sections of the paper
-
-PGL2-Skein-Algebras-on-Surfaces/main.tex contains is the main tex file
+[This folder](PGL2-Skeins/src) contains all sections as individual tex files and [this file](main.tex) is the file that compiles the full paper.
