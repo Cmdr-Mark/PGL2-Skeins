@@ -3,12 +3,72 @@
 \usepackage{hyperref} % links to sections/equations within the paper
 \usepackage{authblk} % authors and institutions
 \usepackage{comment} % package for long comments
+\usepackage{tikz,tikz-cd}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{decorations.markings}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}
 \newtheorem{prop}{Proposition}
+\newtheorem*{conjecture*}{Conjecture}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\pgl}{\mathfrak{pgl}}
+\newcommand{\slin}{\mathfrak{sl}}
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+
+\tikzset{->>-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>>}}},postaction={decorate}}}
+
+\def\positivecrossing{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] (-.7,-.7) -- (.7,.7);
+        \draw[thick] (.1,-.1) -- (.7,-.7);
+        \draw[thick] (-.7,.7) -- (-.1,.1);
+}}
+\def\verticalresolution{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] plot [smooth, tension=1] coordinates {(-.7,.7) (-.3,0) (-.7,-.7)};
+        \draw[thick] plot [smooth, tension=1] coordinates {(.7,.7) (.3,0) (.7,-.7)};
+}}
+\def\horizontalresolution{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] plot [smooth, tension=1] coordinates {(-.7,.7) (0,.3) (.7,.7)};
+        \draw[thick] plot [smooth, tension=1] coordinates {(-.7,-.7) (0,-.3) (.7,-.7)};
+}}
+\def\trivialcomponent{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] (0,0) circle (.5);
+}}
+\def\htangle{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] (-.4,0) -- (.4,0);
+        \draw[thick] (-.8,.6) -- (-.4,0);
+        \draw[thick] (-.8,-.6) -- (-.4,0);
+        \draw[thick] (.8,.6) -- (.4,0);
+        \draw[thick] (.8,-.6) -- (.4,0);
+}}
+\def\itangle{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] (0,.4) -- (0,-.4);
+        \draw[thick] (-.6,.8) -- (0,.4);
+        \draw[thick] (.6,.8) -- (0,.4);
+        \draw[thick] (-.6,-.8) -- (0,-.4);
+        \draw[thick] (.6,-.8) -- (0,-.4);
+}}
+\def\monogon{\tikz[baseline=0]{
+        \draw[dashed] (0,0) circle (1);
+        \draw[thick] (0,0) circle (.5);
+        \draw[thick] (0,-.5) -- (0,-1);
+}}
 
 \hypersetup{
   colorlinks = true,
